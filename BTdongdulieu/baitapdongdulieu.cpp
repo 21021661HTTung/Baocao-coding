@@ -56,14 +56,20 @@ int main() {
     } else {
         cout << "Đầu vào không đạt yêu cầu độ phủ all-uses." << endl;
     }
+
+    // Kiểm tra và tính thuế cho từng trường hợp
     for (long long thuNhap : testCases) {
-        int phanTramThue;
+        int phanTramThue = -1; // Giá trị mặc định
         long long thuePhaiNop = tinhThue(thuNhap, phanTramThue);
         
         cout << "Thu nhập: " << thuNhap << " VND, ";
-        if (thuNhap < 0) cout << "Kết quả: input không hợp lệ." << endl;
-        else if (thuePhaiNop == 0) cout << "Kết quả: Miễn thuế." << endl;
-        else cout << "Thuế phải nộp: " << thuePhaiNop << " VND, Phần trăm thuế: " << phanTramThue << "%" << endl;
+        if (phanTramThue == -1) {
+            cout << "Kết quả: input không hợp lệ." << endl;
+        } else if (thuePhaiNop == 0) {
+            cout << "Kết quả: Miễn thuế." << endl;
+        } else {
+            cout << "Thuế phải nộp: " << thuePhaiNop << " VND, Phần trăm thuế: " << phanTramThue << "%" << endl;
+        }
     }
     return 0;
 }
